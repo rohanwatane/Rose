@@ -281,9 +281,11 @@ background-size: cover;
 
 .text h1 {
   font-family: "Great Vibes", cursive;
-  font-size: 25px;
+  font-size: 35px;
   color: #e91e63;
   text-shadow: 0 0 25px rgba(233, 30, 99, 0.35);
+  white-space: nowrap;
+
 }
 
 .text p {
