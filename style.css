@@ -1,24 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@500;600&display=swap");
 
-/* ---------- Global Reset ---------- */
+/* ================= RESET ================= */
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ---------- Page Background ---------- */
+/* ================= BODY ================= */
 body {
   height: 100vh;
   width: 100%;
   background: linear-gradient(135deg, #ffe4ec, #fff7e6);
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-/* Soft dreamy glow */
+/* Soft pastel glow */
 .bg-glow {
   position: fixed;
   inset: 0;
@@ -28,40 +28,51 @@ body {
   z-index: -1;
 }
 
-/* ---------- Main Container ---------- */
+/* ================= CONTAINER ================= */
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-height: 100vh;
+}
+
+/* ================= ROSE WRAPPER ================= */
+.rose-wrapper {
   position: relative;
-  transform: scale(1.05);
+  width: 200px;      /* MATCHED to your rose design */
+  height: 360px;
 }
 
-/* ---------- Rose Base ---------- */
+/* ================= GLASS ================= */
 .glass {
-  height: 350px;
   width: 200px;
+  height: 350px;
 }
 
-/* ---------- Petals ---------- */
+/* ================= PETALS ================= */
 .petals > div {
   position: absolute;
-  background: #d52d58;
   width: 45px;
   height: 80px;
   top: 55px;
+  background: #d52d58;
   transition: all 0.5s ease-out;
 }
 
 .petals > div:nth-child(1) {
-  border-radius: 15px;
-  box-shadow: 0 0 30px #f594b8;
   left: 80px;
   top: 60px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px #f594b8;
 }
 
 .petals > div:nth-child(2),
 .petals > div:nth-child(4),
 .petals > div:nth-child(6) {
-  background: #b81b43;
   left: 60px;
+  background: #b81b43;
   border-radius: 0 30px 0 30px;
   transform-origin: bottom right;
 }
@@ -69,62 +80,56 @@ body {
 .petals > div:nth-child(3),
 .petals > div:nth-child(5),
 .petals > div:nth-child(7) {
-  background: #b81b43;
   left: 100px;
+  background: #b81b43;
   border-radius: 30px 0 30px 0;
   transform-origin: bottom left;
 }
 
 .petals > div:nth-child(2) {
   z-index: 5;
-  top: 75px;
   height: 70px;
   animation: bloom2 3s ease-in-out forwards;
 }
 
 .petals > div:nth-child(3) {
   z-index: 4;
-  top: 75px;
   height: 70px;
   animation: bloom3 3s ease-in-out forwards, glowing 2.5s infinite;
 }
 
 .petals > div:nth-child(4) {
   z-index: 3;
-  top: 70px;
   height: 75px;
   animation: bloom4 3s ease-in-out forwards, glowing 2.5s infinite;
 }
 
 .petals > div:nth-child(5) {
   z-index: 2;
-  top: 70px;
   height: 75px;
   animation: bloom5 3s ease-in-out forwards, glowing 2.5s infinite;
 }
 
 .petals > div:nth-child(6) {
   z-index: 1;
-  top: 65px;
   height: 70px;
   animation: bloom6 3s ease-in-out forwards, glowing 2.5s infinite;
 }
 
 .petals > div:nth-child(7) {
   z-index: 0;
-  top: 65px;
   height: 70px;
   animation: bloom7 3s ease-in-out forwards, glowing 2.5s infinite;
 }
 
-/* ---------- Stem & Leaves ---------- */
+/* ================= STEM & LEAVES ================= */
 .leaves > div:nth-child(1) {
   position: absolute;
   width: 6px;
   height: 210px;
   background: #054c05;
   top: 95px;
-  left: 100px;
+  left: 97px;
   border-radius: 0 0 100px 100px;
 }
 
@@ -132,11 +137,11 @@ body {
   position: absolute;
   width: 30px;
   height: 50px;
-  border-radius: 5px 40px 20px 40px;
   background: #054c05;
-  transform: rotate(-30deg);
+  border-radius: 5px 40px 20px 40px;
   top: 180px;
-  left: 80px;
+  left: 70px;
+  transform: rotate(-30deg);
   box-shadow: inset 5px 5px #066406;
 }
 
@@ -144,80 +149,74 @@ body {
   position: absolute;
   width: 30px;
   height: 50px;
-  border-radius: 40px 5px 40px 20px;
   background: #054c05;
-  transform: rotate(30deg);
+  border-radius: 40px 5px 40px 20px;
   top: 150px;
-  left: 95px;
+  left: 105px;
+  transform: rotate(30deg);
   box-shadow: inset -5px 5px #066406;
 }
 
-/* ---------- Thorns ---------- */
+/* ================= THORNS ================= */
 .thorns > div {
   position: absolute;
-  top: 140px;
 }
 
 .thorns > div:nth-child(odd) {
+  border-left: 5px solid #054c05;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 5px solid #054c05;
-  left: 105px;
+  left: 103px;
 }
 
 .thorns > div:nth-child(even) {
+  border-right: 5px solid #054c05;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-right: 5px solid #054c05;
-  left: 95px;
+  left: 90px;
 }
 
 .thorns > div:nth-child(1) { top: 200px; }
 .thorns > div:nth-child(2) { top: 170px; }
 .thorns > div:nth-child(4) { top: 230px; }
 
-/* ---------- Text ---------- */
+/* ================= TEXT ================= */
 .text {
-  margin-top: 320px;
   text-align: center;
+  max-width: 90%;
 }
 
 .text h1 {
   font-family: "Great Vibes", cursive;
-  font-size: 42px;
+  font-size: 38px;
   color: #e91e63;
-  text-shadow: 0 0 25px rgba(233, 30, 99, 0.4);
+  text-shadow: 0 0 25px rgba(233, 30, 99, 0.35);
 }
 
 .text p {
   font-family: "Quicksand", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #b8325a;
-  margin: 10px 0 20px;
+  margin: 6px 0 14px;
 }
 
-/* ---------- Button ---------- */
+/* ================= BUTTON ================= */
 .cta {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 12px 28px;
   border-radius: 50px;
   background: linear-gradient(135deg, #ff5f9e, #ff8fb3);
-  color: #fff;
+  color: white;
   text-decoration: none;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   box-shadow: 0 10px 25px rgba(255, 95, 158, 0.4);
   animation: pulse 2s infinite;
-  transition: 0.3s;
 }
 
-.cta:hover {
-  transform: translateY(-3px) scale(1.05);
-}
-
-/* ---------- Animations ---------- */
+/* ================= ANIMATIONS ================= */
 @keyframes bloom2 {
-  100% { transform: rotate(-60deg); top: 252px; left: 50px; }
+  100% { transform: rotate(-60deg); top: 250px; left: 55px; }
 }
 @keyframes bloom3 { 100% { transform: rotate(45deg); } }
 @keyframes bloom4 { 100% { transform: rotate(-20deg); } }
@@ -233,4 +232,14 @@ body {
   0% { box-shadow: 0 0 0 0 rgba(255,95,158,.6); }
   70% { box-shadow: 0 0 0 20px rgba(255,95,158,0); }
   100% { box-shadow: 0 0 0 0 rgba(255,95,158,0); }
+}
+
+/* ================= MOBILE SCALING ================= */
+@media (max-height: 700px) {
+  .rose-wrapper { transform: scale(0.85); }
+}
+
+@media (max-width: 480px) {
+  .rose-wrapper { transform: scale(0.75); }
+  .text h1 { font-size: 28px; }
 }
