@@ -1,115 +1,98 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  min-height: 100vh;
+  margin: 0;
   font-family: "Varela Round", "Quicksand", sans-serif;
-  background: url(background.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url(background.jpg) center / cover no-repeat;
   background-color: #FAD6A5;
-}
-
-.postcard {
-  width: 800px;
-  height: 500px;
-  background: rgba(255, 255, 255, 0.101);
-
-  margin: 0 auto;
-  border-radius: 2%;
   display: flex;
-  justify-content: space-between;
-  padding: 3em;
-  box-shadow: 0.8em 0.8em 15px rgba(0, 0, 0, 0.3);
-  -ms-transform: rotate(2.5deg); /* IE 9 */
-  -webkit-transform: rotate(2.5deg); /* Chrome, Safari, Opera */
-  transform: rotate(2.5deg);
-  -moz-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
+/* MAIN CARD */
+.postcard {
+  width: min(90vw, 800px);
+  aspect-ratio: 8 / 5; /* keeps 800x500 proportion */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.2rem, 3vw, 3rem);
+  box-shadow: 0.8em 0.8em 15px rgba(0, 0, 0, 0.3);
+  transform: rotate(2.5deg);
+  transition: transform 0.5s ease;
+}
+
+/* BACK SHADOW CARD */
 .postcard1 {
-  width: 800px;
-  height: 500px;
+  width: min(90vw, 800px);
+  aspect-ratio: 8 / 5;
   background: #f594b862;
   position: absolute;
-  left: 24%;
-  -webkit-filter: blur(2px);
+  filter: blur(2px);
   z-index: -1;
-  margin: 0 auto;
-  border-radius: 2%;
-  display: flex;
-  justify-content: space-between;
-  padding: 3em;
-  box-shadow: 0.8em 0.8em 15px rgba(0, 0, 0, 0.3);
-  -ms-transform: rotate(2.5deg); /* IE 9 */
-  -webkit-transform: rotate(2.5deg); /* Chrome, Safari, Opera */
+  border-radius: 16px;
   transform: rotate(2.5deg);
-  -moz-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
+/* HOVER EFFECT */
+.postcard:hover {
+  transform: rotate(0deg);
+}
+
+/* TITLE */
 h1 {
   font-family: "Great Vibes", cursive;
   text-align: center;
-  font-size: 4.5em;
-  color: #fdfdfd;
-  margin-bottom: 5px;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  color: #ffffff;
+  margin: 0.2em 0;
 }
 
-/*animation*/
-.postcard:hover,
-.postcard:active,
-.postcard:focus {
-  -ms-transform: rotate(0deg); /* IE 9 */
-  -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
-  transform: rotate(0deg);
-  -moz-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.mail_stamp {
-  width: 100px;
-  float: right;
-}
-
-.push {
-  margin-bottom: 1em;
-  margin-top: 0.5em;
-}
-
-/*footer*/
-footer {
-  margin: 2em auto;
+/* TEXT */
+p {
+  font-size: clamp(1rem, 3.5vw, 1.4rem);
+  font-family: cursive;
+  font-weight: 540;
   text-align: center;
-  font-family: "Varela Round", "Quicksand", sans-serif;
+}
+
+p span {
+  font-size: clamp(1.3rem, 4vw, 1.9rem);
+  font-weight: 600;
+  text-shadow: 0 0 20px #fff;
+  color: #800020;
+}
+
+.bubble {
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  text-shadow: 0 0 20px #fff;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 1.5rem;
+  text-align: center;
   color: white;
 }
 
 footer p {
-  font-size: 1em;
+  font-size: 0.9rem;
   letter-spacing: 1px;
 }
-p span {
-  font-size: 30px;
-  font-weight: 600;
-  text-shadow: 0 0 20px rgb(255, 255, 255);
-  color: #800020;
-}
-p {
-  font-size: 22px;
-  font-family: cursive;
-  font-weight: 540;
-}
-.bubble {
-  font-size: 25px;
 
-  text-shadow: 0 0 20px rgb(255, 255, 255);
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+  .postcard,
+  .postcard1 {
+    transform: rotate(0deg);
+  }
 }
